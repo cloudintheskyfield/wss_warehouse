@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>v-if</title>
+    <title>v-for</title>
 
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 
@@ -25,6 +25,11 @@
         <hr>
         <span v-if="seen">if</span>     <!--v-if对应标签的不存在，只有变量为true的时候才显示 -->
         <span v-show="seen">show</span>  <!-- 经常变动的使用v-show没有else, v-show标记的html存在-->
+        <hr>
+        <ul>
+            <!-- v-for 循环便利-->
+            <li v-for="item in shops">[[ item ]]</li>
+        </ul>
 
 
     </div>
@@ -43,7 +48,8 @@
                 // true为显示 否则不显示
                 isLogin: true,
                 level: 1,
-                seen: false
+                seen: false,
+                shops: ['北京', '广州', '深圳', '上海', '铁岭']
             }
         })
     </script>
