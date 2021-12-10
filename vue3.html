@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue2</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+</head>
+<body>
+
+    <div id="app">
+        {{ message }}   <!-- 正常使用胡子语法来调用 -->
+        [[ message ]]   <!-- 使用delimiters后需要使用该方式来调用-->
+        <hr>
+        <a v-bind:href="next">点击有惊喜</a>     <!-- 使用v-bind: 来绑定变量 可以简写只用一个:-->
+        <hr>
+        <a href="#" v-if="isLogin">个人中心</a>  <!-- if 表示判断 v-else需要跟在v-if后面-->
+        <a href="#" v-else>登录</a>             <!-- v-表示vue的简写 -->
+        <hr>
+        <a href="#" v-if="level===1">黄帝</a>
+        <a href="#" v-else-if="level===2">大臣</a>
+        <a href="#" v-else-if="level===3">平民</a>
+        <a href="#" v-else>皇后</a>
+        <hr>
+        <span v-if="seen">if</span>     <!--v-if对应标签的不存在，只有变量为true的时候才显示 -->
+        <span v-show="seen">show</span>  <!-- v-show没有else, v-show标记的html存在-->
+
+
+    </div>
+
+</body>
+
+    <script type="text/javascript">
+        var app = new Vue ({
+            el: '#app',
+            // 定义分隔符 列表中开始标志 和 结束标志
+            delimiters: ['[[', ']]'],
+            data: {
+                message: 'hello',
+                // 定义变量 使用绝对路径
+                next:'http://www.itcast.cn',
+                // true为显示 否则不显示
+                isLogin: true,
+                level: 1,
+                seen: false
+            }
+        })
+    </script>
+</html>

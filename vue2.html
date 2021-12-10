@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue2</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+</head>
+<body>
+
+    <div id="app">
+        {{ message }}   <!-- 正常使用胡子语法来调用 -->
+        [[ message ]]   <!-- 使用delimiters后需要使用该方式来调用-->
+        <hr>
+        <a v-bind:href="next">点击有惊喜</a>     <!-- 使用v-bind: 来绑定变量 可以简写只用一个:-->
+    </div>
+
+</body>
+
+    <script type="text/javascript">
+        var app = new Vue ({
+            el: '#app',
+            // 定义分隔符 列表中开始标志 和 结束标志
+            delimiters: ['[[', ']]'],
+            data: {
+                message: 'hello',
+                // 定义变量 使用绝对路径
+                next:'http://www.itcast.cn'
+            }
+        })
+    </script>
+</html>

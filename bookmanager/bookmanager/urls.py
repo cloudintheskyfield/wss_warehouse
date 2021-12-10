@@ -15,7 +15,26 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from .viws import *
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    path('index/', response_views),
+    # 当使用视图中的类的时候，使用下面的方法来进行,下面的order有括号
+    # http://127.0.0.1:8000/order/
+    path('order/', OrderView.as_view()),
+
 ]
+
+
+
+
+
+
+
+
+
+
+
+
+
